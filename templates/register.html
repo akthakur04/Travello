@@ -1,0 +1,56 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>register</title>
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+</head>
+<body style="background: url({%static 'img/download.jpg' %}) no-repeat;background-size:cover">
+ <form action="register" method="post">
+     {% csrf_token %}
+
+
+    <div class="login-box">
+      <h1>Register</h1>
+      <div class="textbox">
+        <i class="fas fa-user"></i>
+        <input type="text"name="first_name" placeholder="fname">
+      </div>
+
+      <div class="textbox">
+        <i class="fas fa-user"></i>
+        <input type="text" name="last_name" placeholder="lname">
+      </div>
+
+      <div class="textbox">
+        <i class="fas fa-user"></i>
+        <input type="text" placeholder="Username" name="username">
+      </div>
+
+      <div class="textbox">
+        <i class="fas fa-mail"></i>
+       <input type="email" name="email" placeholder="E-MAIL"><br>
+      </div>
+
+
+      <div class="textbox">
+        <i class="fas fa-lock"></i>
+        <input type="password" placeholder="Type Password" name="password1">
+      </div>
+
+        <div class="textbox">
+        <i class="fas fa-lock"></i>
+        <input type="password" placeholder="Re-Type Password" name="password2">
+      </div>
+
+              <input type="submit" class="btn" value="register">
+    </div>
+
+ </form>
+<div>
+    {% for msg in messages %}
+    <h3>{{msg}}</h3>
+    {% endfor %}
+</div>
+</body>
+</html>
